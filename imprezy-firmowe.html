@@ -1274,12 +1274,98 @@ color:black !important;}
 </div>
 	<div class="wpb_text_column wpb_content_element  vc_custom_1506569272051" >
 		<div class="wpb_wrapper">
-			<p style="text-align: center;">Browar Wyszak to wyjątkowe miejsce o unikalnej, rodzinnej atmosferze. Miejsce pełne radości, niezapomnianych wrażeń oraz gości z różnych zakątków Polski i świata. Aby zapewnić miejsce w lokalu dla wszystkich odwiedzających, zachęcamy do dokonania rezerwacji korzystając z przycisku poniżej. Szczególnie, jeśli planujecie Państwo spotkanie w szerszym gronie.</p>
+			<p style="text-align: center;">Browar Wyszak to wyjątkowe miejsce o unikalnej, rodzinnej atmosferze. Miejsce pełne radości, niezapomnianych wrażeń oraz gości z różnych zakątków Polski i świata. Aby zapewnić miejsce w lokalu dla wszystkich odwiedzających, zachęcamy do dokonania rezerwacji korzystając z formularza poniżej. Szczególnie, jeśli planujecie Państwo spotkanie w szerszym gronie.</p>
 
 		</div>
 	</div>
-<div class="vc_btn3-container vc_btn3-center vc_custom_1508929935491" >
-	<a onmouseleave="this.style.borderColor='#fff5d8'; this.style.backgroundColor='transparent'; this.style.color='#fff5d8'" onmouseenter="this.style.borderColor='#946335'; this.style.backgroundColor='#946335'; this.style.color='#fff5d8';" style="border-color:#fff5d8; color:#fff5d8;" class="vc_general vc_btn3 vc_btn3-size-md vc_btn3-shape-rounded vc_btn3-style-outline-custom" href="https://browarwyszak.pl/kontakt/" title="">ZAREZERWUJ</a></div>
+	<style type="text/css">
+		#rezerwacja-imprezy-firmowej { max-width: 700px; margin: 2em auto; padding: 2em; background: rgba(81,6,0,0.04); border-radius: 8px; border: 1px solid rgba(148,99,53,0.3); }
+		#rezerwacja-imprezy-firmowej .form-row { margin-bottom: 1.2em; }
+		#rezerwacja-imprezy-firmowej label { display: block; margin-bottom: 0.4em; font-weight: 600; color: #310203; font-family: 'Montserrat',sans-serif; }
+		#rezerwacja-imprezy-firmowej input[type="text"],
+		#rezerwacja-imprezy-firmowej input[type="email"],
+		#rezerwacja-imprezy-firmowej input[type="tel"],
+		#rezerwacja-imprezy-firmowej input[type="date"],
+		#rezerwacja-imprezy-firmowej input[type="number"],
+		#rezerwacja-imprezy-firmowej select,
+		#rezerwacja-imprezy-firmowej textarea { width: 100%; padding: 12px 14px; border: 1px solid #946335; background-color: #fcf6dc; color: #573734; font-size: 1em; border-radius: 4px; box-sizing: border-box; }
+		#rezerwacja-imprezy-firmowej textarea { min-height: 100px; resize: vertical; }
+		#rezerwacja-imprezy-firmowej .form-row-inline { display: flex; gap: 1em; flex-wrap: wrap; }
+		#rezerwacja-imprezy-firmowej .form-row-inline .form-group { flex: 1; min-width: 180px; }
+		#rezerwacja-imprezy-firmowej .btn-submit { display: block; width: 100%; max-width: 280px; margin: 1.5em auto 0; padding: 14px 28px; background-color: #510600; color: #fff5d8 !important; border: none; font-family: 'Montserrat',sans-serif; font-size: 1em; text-transform: uppercase; font-weight: 600; border-radius: 4px; cursor: pointer; transition: background-color 0.2s; }
+		#rezerwacja-imprezy-firmowej .btn-submit:hover { background-color: #6a1308; }
+		@media (max-width: 768px) { #rezerwacja-imprezy-firmowej .form-row-inline { flex-direction: column; } }
+	</style>
+	<form id="rezerwacja-imprezy-firmowej" method="get" action="#" onsubmit="return przygotujMailto(this);">
+		<div class="form-row form-row-inline">
+			<div class="form-group">
+				<label for="imie-nazwisko">Imię i nazwisko / Kontakt *</label>
+				<input type="text" id="imie-nazwisko" name="imie_nazwisko" required placeholder="np. Jan Kowalski">
+			</div>
+			<div class="form-group">
+				<label for="firma">Firma (opcjonalnie)</label>
+				<input type="text" id="firma" name="firma" placeholder="Nazwa firmy">
+			</div>
+		</div>
+		<div class="form-row form-row-inline">
+			<div class="form-group">
+				<label for="email-rezerwacja">E-mail *</label>
+				<input type="email" id="email-rezerwacja" name="email" required placeholder="jan@example.pl">
+			</div>
+			<div class="form-group">
+				<label for="telefon-rezerwacja">Telefon *</label>
+				<input type="tel" id="telefon-rezerwacja" name="telefon" required placeholder="np. 662 233 678">
+			</div>
+		</div>
+		<div class="form-row form-row-inline">
+			<div class="form-group">
+				<label for="data-wydarzenia">Planowana data wydarzenia *</label>
+				<input type="date" id="data-wydarzenia" name="data_wydarzenia" required>
+			</div>
+			<div class="form-group">
+				<label for="liczba-gosci">Liczba gości (orientacyjnie) *</label>
+				<input type="number" id="liczba-gosci" name="liczba_gosci" required min="10" max="200" placeholder="np. 30">
+			</div>
+		</div>
+		<div class="form-row">
+			<label for="rodzaj-wydarzenia">Rodzaj wydarzenia</label>
+			<select id="rodzaj-wydarzenia" name="rodzaj_wydarzenia">
+				<option value="impreza_firmowa">Impreza firmowa</option>
+				<option value="spotkanie_biznesowe">Spotkanie biznesowe</option>
+				<option value="wydarzenie_rodzinne">Wydarzenie rodzinne</option>
+				<option value="uroczystość_okolicznościowa">Uroczystość okolicznościowa</option>
+				<option value="inne">Inne</option>
+			</select>
+		</div>
+		<div class="form-row">
+			<label for="wiadomosc-rezerwacja">Dodatkowe informacje / życzenia</label>
+			<textarea id="wiadomosc-rezerwacja" name="wiadomosc" placeholder="Godziny, menu, scenariusz wydarzenia, pytania..."></textarea>
+		</div>
+		<p style="text-align: center; font-size: 0.9em; color: #573734;">Możesz też zadzwonić: <a href="tel:914883481">91 488 34 81</a>, <a href="tel:662233678">662 233 678</a></p>
+		<button type="submit" class="btn-submit">Wyślij zapytanie o rezerwację</button>
+	</form>
+	<script>
+		function przygotujMailto(form) {
+			var labels = { imie_nazwisko: 'Imię i nazwisko', firma: 'Firma', email: 'E-mail', telefon: 'Telefon', data_wydarzenia: 'Data wydarzenia', liczba_gosci: 'Liczba gości', rodzaj_wydarzenia: 'Rodzaj wydarzenia', wiadomosc: 'Wiadomość' };
+			var bodyLines = [];
+			var fields = form.querySelectorAll('input, select, textarea');
+			for (var i = 0; i < fields.length; i++) {
+				var f = fields[i];
+				if (f.name && f.value && f.type !== 'submit') {
+					var label = labels[f.name] || f.name;
+					bodyLines.push(label + ': ' + f.value);
+				}
+			}
+			var dateEl = form.querySelector('[name="data_wydarzenia"]');
+var subject = 'Rezerwacja imprezy firmowej - ' + (dateEl && dateEl.value ? dateEl.value : 'zapytanie');
+			var body = bodyLines.join('\n');
+			var mailto = 'mailto:info@browarwyszak.pl?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+			window.location.href = mailto;
+			return false;
+		}
+	</script>
+<div class="vc_btn3-container vc_btn3-center vc_custom_1508929935491" style="margin-top:1.5em;">
+	<a onmouseleave="this.style.borderColor='#fff5d8'; this.style.backgroundColor='transparent'; this.style.color='#fff5d8'" onmouseenter="this.style.borderColor='#946335'; this.style.backgroundColor='#946335'; this.style.color='#fff5d8';" style="border-color:#fff5d8; color:#fff5d8;" class="vc_general vc_btn3 vc_btn3-size-md vc_btn3-shape-rounded vc_btn3-style-outline-custom" href="kontakt.html" title="">Kontakt / Rezerwacja stolika</a></div>
 </div></div></div></div>
 
 	</div><!-- .entry-content -->
