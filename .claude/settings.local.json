@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"C:\\\\Users\\\\fpawl\\\\.config\\\\claude\"\" 2>nul || echo \"Directory does not exist \")",
+      "WebFetch(domain:repo.wyszekv4.pl)",
+      "WebFetch(domain:browarwyszak.pl)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(unzip:*)",
+      "Bash(where:*)",
+      "Bash(dir:*)",
+      "Bash(python -m ensurepip:*)",
+      "Bash(python -m pip install:*)"
+    ]
+  }
+}
