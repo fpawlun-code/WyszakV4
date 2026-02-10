@@ -15,7 +15,9 @@
       "Bash(powershell:*)",
       "Bash(python:*)",
       "Bash(pip install:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(ls:*)",
+      "Bash(git restore:*)"
     ]
   }
 }
