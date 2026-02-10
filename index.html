@@ -894,29 +894,6 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; line-height
 }
 .lightbox__close:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
 
-/* Back to top */
-.back-to-top {
-    position: fixed;
-    bottom: 32px;
-    right: 32px;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--color-burgundy);
-    border: none;
-    color: white;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all var(--transition-base);
-    z-index: 100;
-}
-.back-to-top.visible { opacity: 1; transform: translateY(0); }
-.back-to-top:hover { background: #8a1a0a; transform: translateY(-3px); }
-.back-to-top svg { width: 20px; height: 20px; }
 </style>
 </head>
 
@@ -1256,10 +1233,6 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; line-height
     <img src="" alt="" id="lightboxImg">
 </div>
 
-<!-- Back to top -->
-<button class="back-to-top" id="backToTop" aria-label="Przewin do gory">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
-</button>
 
 <!-- ============================================
      JAVASCRIPT
@@ -1270,7 +1243,6 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; line-height
 
     // ---- Navigation scroll effect ----
     const nav = document.getElementById('nav');
-    const backToTop = document.getElementById('backToTop');
     let lastScroll = 0;
 
     function onScroll() {
@@ -1280,19 +1252,10 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; line-height
         } else {
             nav.classList.remove('scrolled');
         }
-        if (y > 500) {
-            backToTop.classList.add('visible');
-        } else {
-            backToTop.classList.remove('visible');
-        }
         lastScroll = y;
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
-
-    backToTop.addEventListener('click', function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
 
     // ---- Mobile menu ----
     const toggle = document.getElementById('navToggle');
