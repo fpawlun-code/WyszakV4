@@ -14,7 +14,8 @@
       "Bash(python -m pip install:*)",
       "Bash(powershell:*)",
       "Bash(python:*)",
-      "Bash(pip install:*)"
+      "Bash(pip install:*)",
+      "Bash(curl:*)"
     ]
   }
 }
