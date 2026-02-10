@@ -17,7 +17,8 @@
       "Bash(pip install:*)",
       "Bash(curl:*)",
       "Bash(ls:*)",
-      "Bash(git restore:*)"
+      "Bash(git restore:*)",
+      "WebFetch(domain:wyszak-v4.vercel.app)"
     ]
   }
 }
