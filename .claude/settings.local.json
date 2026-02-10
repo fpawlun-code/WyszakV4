@@ -11,7 +11,10 @@
       "Bash(where:*)",
       "Bash(dir:*)",
       "Bash(python -m ensurepip:*)",
-      "Bash(python -m pip install:*)"
+      "Bash(python -m pip install:*)",
+      "Bash(powershell:*)",
+      "Bash(python:*)",
+      "Bash(pip install:*)"
     ]
   }
 }
